@@ -1,0 +1,12 @@
+
+<h1 mat-dialog-title>Hoàn thành gửi nhận xét</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Nhập tên bạn</mat-label>
+    <input matInput name="user_name" [(ngModel)]="data.user_name">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Đóng</button>
+  <button mat-button class="btn btn-primary" [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

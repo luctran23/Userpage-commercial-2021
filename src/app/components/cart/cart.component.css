@@ -1,0 +1,43 @@
+.decreaseQty {
+    background: red;
+    color: #fff;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    outline: none;
+}
+.inscreaseQty {
+    background: green;
+    color: #fff;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    outline: none;
+}
+.spaceQty {
+    width: 30px;
+    text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+.empty-cart {
+    display: block;
+    margin: 10px auto;
+}
+@media only screen and (max-width:500px) {
+    .removed {
+        display: none;
+    }
+
+    td {
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,143 @@
+<!-- HEADER -->
+<header>
+    <!-- TOP HEADER -->
+    <div id="top-header">
+        <div class="container">
+            <ul class="header-links pull-left">
+                <li><a href="#"><i class="fa fa-phone"></i> +012 430 0343</a></li>
+                <li><a href="#"><i class="fa fa-envelope-o"></i> electrovn@gmail.com</a></li>
+                <li><a href="#"><i class="fa fa-map-marker"></i>Cầu Giấy, Hà Nội, Việt Nam</a></li>
+            </ul>
+            <ul class="header-links pull-right">
+                <li><a href="#"><i class="fa fa-user-o"></i> Tài khoản</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /TOP HEADER -->
+
+    <!-- MAIN HEADER -->     
+    <div id="header">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- LOGO -->
+                <div class="col-md-3">
+                    <div class="header-logo">
+                        <a href="/" class="logo">
+                            <img src="/assets/img/logo.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <!-- /LOGO -->
+
+                <!-- SEARCH BAR -->
+                <div class="col-md-6">
+                    <div class="header-search">
+                        <select class="input-select" style="outline: none;">
+                            <option value="0">Danh mục</option>
+                            <option value="1">Laptop</option>
+                            <option value="2">Điện thoại</option>
+                            <option value="3">Máy ảnh</option>
+                            <option value="4">Phụ kiện</option>
+                        </select>
+                        <input type="text" class="search-box" data-toggle="dropdown" placeholder="Nhập từ khóa tìm kiếm"
+                            style="outline: none; width: 320px; height: 42px;" #input [matAutocomplete] = "auto" />
+                        <mat-autocomplete #auto="matAutocomplete">
+                             <mat-option *ngFor="let option of options" [value]="option">
+                                {{option}}
+                             </mat-option>
+                        </mat-autocomplete>
+                        <button class="search-btn" (click)="sendKeyWord(input.value)">Tìm kiếm</button>
+                        
+                    </div>
+                </div>
+                <!-- /SEARCH BAR -->
+
+                <!-- ACCOUNT -->
+                <div class="col-md-3 clearfix">
+                    <div class="header-ctn">
+                        <!-- Wishlist -->
+                        <div>
+                            <a href="#">
+                                <i class="fa fa-heart-o"></i>
+                                <span>Yêu thích</span>
+                                <div class="qty">0</div>
+                            </a>
+                        </div>
+                        <!-- /Wishlist -->
+                        <!-- Cart -->
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>Giỏ hàng</span>
+                                <!-- TODO: write a function to sum the quantity, totalQuantity(cartItems) -->
+                                <div class="qty">{{ cartItems.length}}</div>
+                            </a>
+                            <div class="dropdown-menu dropbox">
+                                <div class="cart-list" *ngIf="cartItems.length > 0">
+                                    <div class="product-widget" *ngFor="let item of cartItems">
+                                        <div class="product-img">
+                                            <img [src]="item.imgUrl" alt="">
+                                        </div>
+                                        <div class="product-body">
+                                            <h3 class="product-name" style="margin-bottom: 0;"><a href="#">{{item.prodName}}</a></h3>
+                                            <h3 class="product-price"><span class="qty">{{item.quantity}} x </span>{{item.price | currency: 'VND'}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div *ngIf="cartItems.length == 0" style="padding: 20px;">
+                                    Không có sản phẩm nào trong giỏ.
+                                </div>
+                                <div class="cart-summary" *ngIf="cartItems.length > 0">
+                                    <h2>Tổng: {{ TotalMoney(cartItems) | currency: 'VND'}}</h2>
+                                </div>
+                                <div class="cart-btns">
+                                    <a routerLink="/cart" class="viewcart-btn">Xem giỏ</a>
+                                    <a routerLink="/checkout" class="checkout-btn">Thanh toán</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Cart -->
+
+                        <!-- Menu Toogle -->
+                        <div class="menu-toggle">
+                            <a href="#">
+                                <i class="fa fa-bars"></i>
+                                <span>Menu</span>
+                            </a>
+                        </div>
+                        <!-- /Menu Toogle -->
+                    </div>
+                </div>
+                <!-- /ACCOUNT -->
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+    </div>
+    <!-- /MAIN HEADER -->
+</header>
+<!-- /HEADER -->
+
+<!-- NAVIGATION -->
+<nav id="navigation">
+    <!-- container -->
+    <div class="container">
+        <!-- responsive-nav -->
+        <div id="responsive-nav">
+            <!-- NAV -->
+            <ul class="main-nav nav my-3">
+                <li class="active"><a href="/">Trang chủ</a></li>
+                <li><a routerLink="/laptops">Laptops</a></li>
+                <li><a routerLink="/phones">Điện thoại</a></li>
+                <li><a routerLink="/cameras">Máy Ảnh</a></li>
+                <li><a routerLink="/accessories">Phụ kiện</a></li>
+            </ul>
+            <!-- /NAV -->
+        </div>
+        <!-- /responsive-nav -->
+    </div>
+    <!-- /container -->
+</nav>
+<!-- /NAVIGATION -->

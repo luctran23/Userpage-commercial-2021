@@ -1,0 +1,24 @@
+.banner-parent {
+    display: flex;
+}
+
+#carouselExampleControls {
+    margin-left: 120px;
+    width: 1010px;
+}
+#carouselExampleControls .carousel-inner .carousel-item img {
+    border-radius: 15px;
+}
+.banner-left img {
+    width: 446px;
+    border-radius: 15px;
+}
+.prod-box img {
+    border-radius: 50%;
+}
+.prod-box {
+    border: 1px solid transparent;
+}
+.prod-box:hover {
+    border: 1px solid #ccc;
+}

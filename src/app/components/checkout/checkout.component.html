@@ -1,0 +1,99 @@
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row" [formGroup]="userForm">
+
+            <div class="col-md-7">
+                <!-- Billing Details -->
+                <div class="billing-details form-group" >
+                    <div class="section-title">
+                        <h1><b>Thông tin mua hàng</b></h1>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" formControlName="name" type="text"  placeholder="Họ và tên (*)" #nameInput
+                            [ngClass]="{'has-error': formErrors.name}"
+                            (blur)="pushErrorsIntoFormErrors()"
+                        >
+                        <div class="errorMessage" >
+                            {{ formErrors.name }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" formControlName="email" type="email"  placeholder="Email (*)" #emailInput 
+                        [ngClass]="{'has-error': formErrors.email}"
+                        (blur)="pushErrorsIntoFormErrors()"
+                        >
+                        <div class="errorMessage" >
+                            {{ formErrors.email }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" formControlName="address" type="text"  placeholder="Địa chỉ (*)" #addressInput 
+                        [ngClass]="{'has-error': formErrors.address}"
+                        (blur)="pushErrorsIntoFormErrors()"
+                        >
+                        <div class="errorMessage">
+                            {{ formErrors.address }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" formControlName="zipcode" type="text"  placeholder="ZIP Code (*)" #zipcodeInput 
+                        [ngClass]="{'has-error': formErrors.zipcode}"
+                        (blur)="pushErrorsIntoFormErrors()"
+                        >
+                        <div class="errorMessage">
+                            {{ formErrors.zipcode }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" formControlName="phone" type="tel"  placeholder="Điện thoại (*)" #phoneInput 
+                        [ngClass]="{'has-error': formErrors.phone}"
+                        (blur)="pushErrorsIntoFormErrors()"
+                        >
+                        <div class="errorMessage">
+                            {{ formErrors.phone }}
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- /Billing Details -->
+            </div>
+
+            <!-- Order Details -->
+            <div class="col-md-5 order-details">
+                <div class="section-title text-center">
+                    <h1><b>Đơn hàng</b></h1>
+                </div>
+                <div class="order-summary">
+                    <div class="order-col">
+                        <div><strong>Sản phẩm</strong></div>
+                        <div><strong>Tổng</strong></div>
+                    </div>
+                    <div class="order-products">
+                        <div class="order-col" *ngFor="let product of products">
+                            <div>{{product.quantity}} x {{product.prodName}}</div>
+                            <div>{{product.quantity * product.price | currency: 'VND'}}</div>
+                        </div>
+                    </div>
+                    <div class="order-col">
+                        <div>Phí ship</div>
+                        <div><strong>FREE</strong></div>
+                    </div>
+                    <div class="order-col">
+                        <div><strong>Tổng</strong></div>
+                        <div><strong class="order-total">{{TotalMoney(products) | currency: 'VND'}}</strong></div>
+                    </div>
+                </div>
+                <a type="submit" class="primary-btn order-submit" style="color: #fff; cursor: pointer;" (click)="Order(nameInput.value, emailInput.value, addressInput.value, phoneInput.value); nameInput.value=''; emailInput.value=''; addressInput.value='';phoneInput.value='';zipcodeInput.value=''"
+                    [class.disabled]="userForm.status=='INVALID'"
+                >Đặt hàng</a>
+            </div>
+            <!-- /Order Details -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->

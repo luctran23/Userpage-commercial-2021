@@ -1,0 +1,23 @@
+.container {
+    text-align: center;
+}
+.container h1 {
+    padding: 10px;
+    font-size: 36px;
+    color: #51d451;
+}
+.container h3 {
+    font-size: 18px;
+}
+.container p {
+    font-style: italic;
+}
+.container a {
+    background: red;
+    color: #fff;
+    padding: 10px;
+    display: block;
+    width: 200px;
+    margin: 30px auto;
+    border-radius: 10px;
+}

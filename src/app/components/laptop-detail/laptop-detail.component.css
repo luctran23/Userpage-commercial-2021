@@ -1,0 +1,299 @@
+.thumbnails {
+    text-align: center;
+}
+.thumbnails img {
+    border: solid 1px gray;
+    margin: 10px;
+    opacity: 0.6;
+}
+.thumbnails img:hover {
+    opacity: 1;
+}
+.no-stock {
+    color: red;
+    margin-top: 15px;
+}
+.add-to-cart-btn {
+    outline: none;
+}
+.product-card {
+    border: 1px solid transparent;
+    padding: 8px;
+    
+}
+.product-card:hover {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.product-card:hover img {
+    transform: scale(1.06);
+}
+.product-card img {
+    transition: transform .5s ease;
+}
+.badges-group {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    bottom: 24px;
+    align-items: baseline;
+}
+.badges-group span {
+    color: #fff;
+    padding: 5px 11px;
+    font-size: 13px;
+}
+.badge.badge-primary {
+    background: #cb1c22;
+}
+.product-name p {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: normal;
+    color: #474c51;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 10;
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+.product-name p:hover{
+    color: #0168fa;
+}
+.title {
+    font-size: 20px;
+    color: #cb1c22;
+}
+.product-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+.saleprice {
+    background: #cb1c22;
+    padding: 8px 40px;
+    border-radius: 20px;
+    color: #fff;
+}
+.saleprice2 {
+    color: #cb1c22;
+    font-size: 18px;
+    font-weight: 500;
+}
+.price {
+    text-decoration: line-through;
+}
+.promotion-section {
+    background-color: #f8f9fa;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.promotion-title span{
+    padding: 4px 10px;
+    font-weight: 500;
+    background-color: #e9ecef;
+    display: inline-block;
+    border-radius: 0 0 4px 0;
+}
+.st-boxPromo__list {
+    border: 1px solid;
+    border-color: transparent #e9ecef #e9ecef #e9ecef;
+    border-radius: 0 0 4px 4px;
+}
+.st-boxPromo__list li {
+    display: flex;
+    padding: 4px 10px;
+}
+.st-boxPromo__list li i {
+    margin-right: 10px;
+    color: green; 
+    font-size: 18px;
+}
+
+.card-title {
+    position: relative;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    color: #212529;
+}
+.product-rating i {
+    color: #ea9d02;
+    font-size: 23px;
+    margin: 2px;
+}
+.point {
+    font-size: 44px;
+    line-height: 60px;
+    color: #cb1c22;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+.progress-bar {
+    background-color: #e9ecef;
+    /* border-radius: 19.6px; */
+    width: 280px;
+    height: 10px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    margin: 0 4px 0 5px;
+}
+.progress-item span {
+    font-size: 14px;
+    line-height: 20px;
+    color: #99a2aa;
+}
+.progress-value {
+    background-color: #48bb78;
+    -webkit-transition: .3s all linear;
+    -o-transition: .3s all linear;
+    transition: .3s all linear;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    animation: progress 3s ease-in-out forwards;
+    -webkit-animation: progress 3s ease-in-out forwards;
+}
+.c-rate__right {
+    padding-top: 33px;
+}
+
+
+.c-user-rate-form {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+.c-user-rate-form textarea {
+    width: 100%;
+    height: 68px;
+    border-radius: 4px;
+    border: solid 1px #ced4da;
+    background-color: #fff;
+    padding: 8px 123px 8px 8px;
+    outline: 0;
+}
+.c-user-rate-form .btn {
+    position: absolute;
+    top: 34px;
+    right: 20px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding: 10px 11px;
+}
+.btn-primary {
+    color: #fff;
+    background: #cb1c22;
+    outline: 0;
+    border: none;
+}
+.c-comment {
+    padding: 20px 20px 16px;
+    position: relative;
+    background: #fff;
+    width: 100%;
+}
+.c-comment-box {
+    display: flex;
+    margin-bottom: 17px;
+}
+.c-comment-box__avatar {
+    -ms-flex-preferred-size: 70px;
+    flex-basis: 70px;
+    height: 70px;
+    margin-right: 15px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border-radius: 4px;
+    background: #ced4da;
+    color: #fff;
+    font-size: 20px;
+    line-height: 28px;
+}
+.c-comment-box__content {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+.c-comment-name {
+    margin-right: 5px;
+    font-weight: 500;
+    color: #212529;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 18px;
+    line-height: 24px;
+}
+.c-comment-text {
+    color: #444b52;
+    font-weight: 400;
+    margin-top: 4px;
+    font-size: 16px;
+    line-height: 24px;
+}
+.c-comment-status {
+    margin-top: 4px;
+    color: #0168fa;
+    text-decoration: none;
+    background-color: transparent;
+}
+.c-comment-name .time {
+    font-size: 14px;
+    line-height: 14px;
+    color: #99a2aa;
+    font-weight: 300;
+    display: inline-block;
+    margin-left: 4px;
+}
+.c-comment-box.level2 {
+    padding-left: 85px;
+}
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 70%;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    margin-left: 2px;
+}
+.c-comment-box.level2 .c-comment-box__content {
+    padding-left: 16px;
+    margin-left: 16px;
+    position: relative;
+    -webkit-box-shadow: inset 5px 0 0 0 #dee2e6;
+    box-shadow: inset 5px 0 0 0 #dee2e6;
+    background-color: rgba(0,0,0,0);
+}

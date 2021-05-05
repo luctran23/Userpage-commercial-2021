@@ -1,0 +1,126 @@
+/* .header-search form .search-btn {
+    height: 41px;
+} */
+.search-box {
+    margin-top: -1px;
+    padding: 7px;
+}
+.header-search {
+    display: flex;
+    justify-content: center;
+}
+.header-search select {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.header-search button {
+    background: #D10024;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    color: #fff;
+    outline: none;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    background: #ccc;
+}
+.dropbox {
+    width: 300px;
+    left: -293px;
+    padding: 10px 0 0 0;
+    margin: 0;
+}
+.cart-btns {
+    display: flex;
+    justify-content: space-around;
+}
+.viewcart-btn {
+    padding: 10px;
+    text-align: center;
+    width: 50%;
+    background: #1e1f29;
+    color: #fff;
+}
+.checkout-btn {
+    padding: 10px;
+    text-align: center;
+    width: 50%;
+    background: #D10024;
+    color: #fff;
+    
+}
+.cart-list {
+    max-height: 173px;
+    overflow-y: scroll;
+}
+@media only screen and (max-width:800px) {
+    /* For tablets: */
+    .header-links.pull-right {
+        display: none;
+    }
+    .input-select {
+        display: none;
+    }
+    .header-ctn {
+        display: flex;
+        margin-left: 10px;
+    }
+    .input-select {
+        display: none;
+    }
+    .menu-toggle {
+        display: none;
+    }
+    .header-ctn a {
+        margin-right: -20px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .col-md-3.clearfix {
+        display: flex;
+        justify-content: center;
+    }
+    .cart-dropdown {
+        left: -198px;
+    }
+    .cart-btns a {
+        margin-right: 0px;
+        padding: 7px;
+        font-size: 13px;
+    }
+    
+    .cart-summary h5 {
+        font-size: 17px;
+    }
+}
+@media only screen and (max-width:1024px) {
+    .search-box {
+        height: 42px;
+    }
+    .search-btn {
+        font-size: 14px;
+        height: 42px;
+    }
+    .header-ctn {
+        display: flex;
+        float: none;
+    }
+    .menu-toggle {
+        display: none;
+    }
+    .input-select {
+        display: none;
+    }
+}
+@media only screen and (max-width:1200px) {
+    .search-box {
+        height: 42px;
+    }
+    .search-btn {
+        font-size: 14px;
+        height: 42px;
+    }
+}

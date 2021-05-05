@@ -1,0 +1,126 @@
+
+.newsletter form .newsletter-btn  {
+    margin-top: 1px;
+}
+.pagination {
+    justify-content: center;
+}
+.disabled {
+    cursor: not-allowed;
+}
+.shop-body h3 {
+    font-size: 32px;
+}
+.product-card {
+    border: 1px solid transparent;
+    padding: 8px;
+    
+}
+.product-card:hover {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.product-card:hover img {
+    transform: scale(1.06);
+}
+.product-card img {
+    transition: transform .5s ease;
+}
+.badges-group {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    bottom: 24px;
+    align-items: baseline;
+}
+.badges-group span {
+    color: #fff;
+    padding: 5px 11px;
+    font-size: 13px;
+}
+.badge.badge-primary {
+    background: #cb1c22;
+}
+.product-name p {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: normal;
+    color: #474c51;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 10;
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+.product-name p:hover{
+    color: #0168fa;
+}
+.title {
+    font-size: 20px;
+    color: #cb1c22;
+}
+.product-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+.saleprice {
+    background: #cb1c22;
+    padding: 8px 40px;
+    border-radius: 20px;
+    color: #fff;
+}
+.saleprice2 {
+    color: #cb1c22;
+    font-size: 18px;
+    font-weight: 500;
+}
+.price {
+    text-decoration: line-through;
+}
+.banner img {
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+@media only screen and (max-width:800px) {
+    .shop-img img {
+        height: 170px;
+    }
+}
+@media only screen and (max-width:500px) {
+    .shop-img img {
+        height: 100%;
+    }
+    .shop {
+        display: none;
+    }
+    .title {
+        font-size: 18px;
+    }
+    .section-tab-nav.tab-nav li a {
+        font-size: 14px;
+    }
+    .btn.btn-outline-primary.btn-sm.btn-btn-block {
+        display: block;
+        margin: 0 auto;
+    }
+    #hot-deal {
+        display: none;
+    }
+}
+@media only screen and (max-width:1200px) {
+    .shop-img img {
+        height: 193px;
+    }
+}

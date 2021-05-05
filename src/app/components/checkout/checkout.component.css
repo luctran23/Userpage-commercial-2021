@@ -1,0 +1,11 @@
+.has-error {
+    border: 2px solid red;
+}
+.errorMessage {
+    margin-top: 5px;
+    font-size: 13px;
+    color: red;
+}
+.disabled{ 
+    cursor: not-allowed;
+}
