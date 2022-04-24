@@ -57,6 +57,7 @@ export class CameraDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.getItem();
     //this.getComments();
   }

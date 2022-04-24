@@ -13,6 +13,8 @@ import { LaptopDetailComponent } from './components/laptop-detail/laptop-detail.
 import { PhoneDetailComponent } from './components/phone-detail/phone-detail.component';
 import { CameraDetailComponent } from './components/camera-detail/camera-detail.component';
 import { AccessoryDetailComponent } from './components/accessory-detail/accessory-detail.component';
+import { NewsComponent } from './components/news/news.component';
+import { NewsDetailComponent } from './components/news-detail/news-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,6 +30,8 @@ const routes: Routes = [
   { path: 'cameras/:id', component: CameraDetailComponent },
   { path: 'accessories', component: AccessoriesComponent },
   { path: 'accessories/:id', component: AccessoryDetailComponent },
+  { path: 'news', component: NewsComponent },
+  { path: 'news/:id', component: NewsDetailComponent },
   { path: 'successful', component: SuccessfulComponent }
 ];
 

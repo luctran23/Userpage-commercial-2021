@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { User } from '../../../models/user';
-import { CheckoutService } from '../../services/checkout.service';
-import { Bill } from '../../../models/bill';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,6 +9,7 @@ import { BillsService } from 'src/app/services/bills.service';
 import { map, mergeMap } from 'rxjs/operators';
 import * as moment from 'moment';
 import { ToastrService } from 'ngx-toastr';
+import { SendEmailService } from 'src/app/services/send-email.service';
 
 @Component({
   selector: 'app-checkout',
@@ -30,7 +29,8 @@ export class CheckoutComponent implements OnInit {
   newBill: any = {
     _id: "",
     date: moment().format(),
-    user_id: "1"
+    user_id: "1",
+    status: 0
   }
   newBillDetail = {
     _id: "",
@@ -67,16 +67,15 @@ export class CheckoutComponent implements OnInit {
     'zipcode': '',
     'phone': ''
   }
-  constructor(public cartService: CartService, private checkoutService: CheckoutService,
+  constructor(public cartService: CartService,
               private fb: FormBuilder,
               private router: Router,
               private usersService: UsersService,
               private billsService: BillsService,
               private toastr: ToastrService,
+              private sendEmailService: SendEmailService
     ) { }
   
-  
-
   ngOnInit(): void {
     this.products = this.cartService.cartItems;
     this.initializeForm();
@@ -143,10 +142,9 @@ export class CheckoutComponent implements OnInit {
         return user;
       }),
       mergeMap(user => this.billsService.createItem(this.newBill))
-    ).subscribe();
+    ).subscribe( data => this.sendEmailService.createItem({prod_Ids: this.newBill.prod_Ids, toEmail: this.newUser.email}).subscribe());
     localStorage.removeItem('cart'); 
     this.router.navigate(['/successful']).then();
-    
   }
 
 }

@@ -3,6 +3,7 @@ import { Product } from '../../../models/product';
 import { HomeService } from '../../services/home.service';
 import { MessengerService } from 'src/app/services/messenger.service';
 import { Router } from '@angular/router';
+import { LaptopsService } from 'src/app/services/laptops.service';
 
 @Component({
   selector: 'app-laptops',
@@ -10,34 +11,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./laptops.component.css']
 })
 export class LaptopsComponent implements OnInit {
-  products: Product[];
+  products = [];
   page: number = 1;
-  x : string = 'a';
-  constructor(private homeService: HomeService, private messengerService: MessengerService, private router: Router) { 
-    this.x = 'b';
+  constructor(private homeService: HomeService,
+     private messengerService: MessengerService,
+      private router: Router,
+      private laptopsService: LaptopsService,
+      ) { 
   }
 //1 23564
   ngOnInit(): void {
     this.getProducts();
   }
   getProducts():void {
-    this.homeService.getProducts().subscribe(products => {
-      this.products = products.filter(prod => prod.cate_id == "2")
-    });
+   this.laptopsService.getAllItems().subscribe(data => {
+     this.products = data;
+   });
   }
 
-  addLaptopToCart(laptop) {
-    if(this.products.find(prod => prod._id == laptop._id).quantity == 0) {
-      return;
-    }
-    this.messengerService.sendMessage(laptop);
-    // update quantity in database
-    this.products.find(prod => prod._id == laptop._id).quantity--;
-    this.homeService.updateProdQuantity(laptop, laptop.quantity).subscribe(() => {
-      console.log("updated successfully! ");
-    });
-  }
   selectedProd(id: string) {
-    this.router.navigate(['/product/', id]).then();
+    this.router.navigate(['/laptops/', id]).then();
   }
 }

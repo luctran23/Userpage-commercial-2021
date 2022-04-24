@@ -4,6 +4,7 @@ import { HomeComponent } from '../home/home.component';
 import { Product } from '../../../models/product';
 import { MessengerService } from '../../services/messenger.service';
 import { Router } from '@angular/router';
+import { CamerasService } from 'src/app/services/cameras.service';
 
 @Component({
   selector: 'app-cameras',
@@ -14,26 +15,20 @@ export class CamerasComponent implements OnInit {
   products: Product[];
   page: number = 1;
   
-  constructor(private homeService: HomeService, private messengerService: MessengerService, private router: Router) { }
+  constructor(
+      private router: Router,
+      private camerasService: CamerasService,
+      ) { }
 
   ngOnInit(): void {
     this.getProducts();
   }
 
   getProducts():void {
-    this.homeService.getProducts().subscribe(products => this.products = products.filter(prod => prod.cate_id == "3"));
+    this.camerasService.getAllItems().subscribe(data => this.products = data);
   }
-  addCameraToCart(camera) {
-    if(this.products.find(prod => prod._id == camera._id).quantity == 0) {
-      return;
-    }
-    this.messengerService.sendMessage(camera);
-    this.products.find(prod => prod._id == camera._id).quantity--;
-    this.homeService.updateProdQuantity(camera, camera.quantity).subscribe(() => {
-      console.log("updated successfully! ");
-    });
-  }
+  
   selectedProd(id: string) {
-    this.router.navigate(['/product/', id]).then();
+    this.router.navigate(['/cameras/', id]).then();
   }
 }

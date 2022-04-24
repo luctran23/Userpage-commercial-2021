@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row" *ngFor="let item of news">
+    <div class="col-md-4 text-center">
+      <a href="https://fptshop.com.vn/tin-tuc/tin-moi/samsung-galaxy-tab-a7-lite-ra-mat-voi-chip-helio-p22t-va-pin-5100-mah-135459" target="_blank">
+        <img [src]="item.image[0]" alt="thumbnail-image" />
+      </a>
+    </div>
+    <div class="col-md-8">
+      <h2>{{ item.title }}</h2>
+      <p>{{ item.content }}</p>
+      <p>
+        <span>{{ item.time | date: "dd-MM-yyyy hh:mm" }}</span>
+      </p>
+    </div>
+  </div>
+</div>

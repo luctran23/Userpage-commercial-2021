@@ -11,7 +11,7 @@ export class CartService {
 
   getProdFromHomeComponent(product) {
     if (this.cartItems.find(item => item.prodId == product._id) == undefined) {
-      this.cartItems.push({ prodId: product._id, imgUrl: product.descriptionImages[0], prodName: product.name, quantity: product.orderQuantity, price: product.price, url: product.url });
+      this.cartItems.push({ prodId: product._id, imgUrl: product.descriptionImages[0], prodName: product.name, quantity: product.orderQuantity, price: product.salePrice, url: product.url });
     }
     else {
       this.cartItems.find(item => item.prodId == product._id).quantity += product.orderQuantity;

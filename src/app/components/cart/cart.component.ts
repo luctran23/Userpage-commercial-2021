@@ -8,6 +8,7 @@ import { map, mergeMap } from 'rxjs/operators';
 import { CamerasService } from 'src/app/services/cameras.service';
 import { LaptopsService } from 'src/app/services/laptops.service';
 import { PhonesService } from 'src/app/services/phones.service';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-cart',
@@ -26,35 +27,63 @@ export class CartComponent implements OnInit {
     private accessoriesService: AccessoriesService,
     private camerasService: CamerasService,
     private laptopsService: LaptopsService,
-    private phonesService: PhonesService
+    private phonesService: PhonesService,
+    private productsService: ProductsService,
   ) { }
 
   ngOnInit(): void {
     this.products = this.cartService.cartItems;
     this.getSingleProdQty();
-    this.homeService.getProducts().subscribe(products => this.allProducts = products);
+    this.productsService.getAllItems().subscribe(data => this.allProducts = data);
   }
   TotalMoney(carts: any[]) {
     return carts.reduce((total, item) => total + item.quantity * item.price, 0);
   }
-
-  increaseQuantity(productId, quantity) {
-    var aProd = this.allProducts.find(item => item._id == productId);
+  updateQuantity(prodInCart, prod) {
+    if(prodInCart.url.includes('accessories')) {
+      this.accessoriesService.updateItem(prod).subscribe(
+        (res) => {
+          console.log(res);
+      })
+    }
+    if(prodInCart.url.includes('cameras')) {
+      this.camerasService.updateItem(prod).subscribe(
+        (res) => {
+          console.log(res);
+      })
+    }
+    if(prodInCart.url.includes('laptops')) {
+      this.laptopsService.updateItem(prod).subscribe(
+        (res) => {
+          console.log(res);
+      })
+    }
+    if(prodInCart.url.includes('phones')) {
+      this.phonesService.updateItem(prod).subscribe(
+        (res) => {
+          console.log(res);
+      })
+    }
+  }
+  increaseQuantity(product) {
+    const aProd = this.allProducts.find(item => item._id == product.prodId);
     if (aProd.quantity > 0) {
-      this.products.find(item => item.prodId == productId).quantity++;
+      product.quantity++;
       aProd.quantity--;
     }
     else {
       alert('Sản phẩm đã hết hàng')
     }
     localStorage.setItem('cart', JSON.stringify(this.products));
-    this.homeService.updateProdQuantity(aProd, aProd.quantity).subscribe(() => {
-      console.log("updated successfully! ");
-    });
+    this.updateQuantity(product, aProd);
   }
-  decreaseQuantity(producId) {
-    if (this.products.find(item => item.prodId == producId).quantity > 1) {
-      this.products.find(item => item.prodId == producId).quantity--;
+  decreaseQuantity(product) {
+    const aProd = this.allProducts.find(item => item._id == product.prodId);
+    if (product.quantity > 1) {
+      product.quantity--;
+      aProd.quantity++;
+      localStorage.setItem('cart', JSON.stringify(this.products));
+      this.updateQuantity(product, aProd);
     }
   }
   deleteCartItem(cartCollection: any, product: any) {

@@ -57,6 +57,7 @@ export class AccessoryDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0)
     this.getItem();
   }
 
@@ -187,7 +188,6 @@ export class AccessoryDetailComponent implements OnInit {
     }
     let reply = {};
     this.openDialog(reply, value, item._id);
-
   }
   openDialog(item, value, pId): void {
     const dialogRef = this.dialog.open(QuestionDialogComponent, {

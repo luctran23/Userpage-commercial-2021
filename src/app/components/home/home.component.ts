@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../../models/product';
-import { HomeService } from '../../services/home.service';
 import { Router } from '@angular/router';
 import { MessengerService } from '../../services/messenger.service';
 import { CartService } from '../../services/cart.service';
@@ -21,9 +19,9 @@ export class HomeComponent implements OnInit {
   laptops = [];
   cameras = [];
   accessories = [];
-  
+  searchText = '';
+  prodForSearch = [];
   constructor(
-   
     private router: Router,
     private messengerService: MessengerService,
     public cartService: CartService,
@@ -32,14 +30,20 @@ export class HomeComponent implements OnInit {
     private laptopsService: LaptopsService,
     private camerasService: CamerasService,
     private accessoriesService: AccessoriesService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.getProducts();
     window.scrollTo(0, 0);
+    this.messengerService.currentMessage.subscribe(message => {
+      this.searchText = message;
+      if (this.searchText !== "message") {
+        this.products = this.prodForSearch.filter(item => item.name.toLowerCase().includes(this.searchText.toLocaleLowerCase()));
+      }
+    });
+    console.log("search text: ", this.searchText);
   }
-
-  getProducts():void {
+  getProducts(): void {
     this.phonesService.getAllItems().subscribe(data => {
       this.phones = data;
     });
@@ -54,11 +58,24 @@ export class HomeComponent implements OnInit {
     })
     this.productsService.getAllItems().subscribe(data => {
       this.products = data;
+      this.products.map(item => {
+        if(item.cate_id == "6083448040ae0b04983e8872") {
+          item.url = "laptops";
+        }
+        if(item.cate_id == "6083448c40ae0b04983e8873") {
+          item.url = "cameras";
+        }
+        if(item.cate_id == "6083449240ae0b04983e8874") {
+          item.url = "accessories";
+        }
+        if(item.cate_id == "6089e750b6527c06147d7c74") {
+          item.url = "phones";
+        }
+        if(item)
+        return item;
+      });
+      this.prodForSearch = this.products;
+      console.log("products home: ", this.products);
     })
   }
-
-  
- // SEARCH FEATURE HOME PAGE
-
-  
 }

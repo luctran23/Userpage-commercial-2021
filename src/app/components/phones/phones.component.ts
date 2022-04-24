@@ -3,6 +3,7 @@ import { Product } from '../../../models/product';
 import { HomeService } from '../../services/home.service';
 import { MessengerService } from '../../services/messenger.service';
 import { Router } from '@angular/router';
+import { PhonesService } from 'src/app/services/phones.service';
 
 @Component({
   selector: 'app-phones',
@@ -10,29 +11,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./phones.component.css']
 })
 export class PhonesComponent implements OnInit {
-  products: Product[];
+  products = [];
   page: number = 1;
   
-  constructor(private homeService: HomeService, private messengerService: MessengerService, private router: Router) { }
+  constructor(private router: Router,
+    private phonesService: PhonesService,
+    ) { }
 
   ngOnInit(): void {
     this.getProducts();
   }
   getProducts():void {
-    this.homeService.getProducts().subscribe(products => this.products = products.filter(prod => prod.cate_id == "1"));
-  }
-  addPhoneToCart(phone) {
-    if(this.products.find(prod => prod._id == phone._id).quantity == 0) {
-      return;
-    }
-    this.messengerService.sendMessage(phone);
-    this.products.find(prod => prod._id == phone._id).quantity--;
-
-    this.homeService.updateProdQuantity(phone, phone.quantity).subscribe(() => {
-      console.log("updated successfully! ");
+    this.phonesService.getAllItems().subscribe(data => {
+      this.products = data;
     });
   }
+  
   selectedProd(id: string) {
-    this.router.navigate(['/product/', id]).then();
+    this.router.navigate(['/phones/', id]).then();
   }
 }

@@ -65,6 +65,8 @@ import { MatTreeModule } from '@angular/material/tree'
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { QuestionDialogComponent } from './components/accessory-detail/question-dialog/question-dialog.component';
+import { NewsComponent } from './components/news/news.component';
+import { NewsDetailComponent } from './components/news-detail/news-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,7 +86,9 @@ import { QuestionDialogComponent } from './components/accessory-detail/question-
     PhoneDetailComponent,
     CameraDetailComponent,
     AccessoryDetailComponent,
-    QuestionDialogComponent
+    QuestionDialogComponent,
+    NewsComponent,
+    NewsDetailComponent
   ],
   imports: [
     BrowserModule,
