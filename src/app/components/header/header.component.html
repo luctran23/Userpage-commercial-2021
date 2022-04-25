@@ -36,10 +36,14 @@
                     <div class="header-search">
                         <select class="input-select" style="outline: none;" name="forma" onchange="location = this.value;">
                             <option value="0">Danh mục</option>
+                            <option *ngFor="let option of options" [value]="'/' + option.toLowerCase()">
+                                {{option}}
+                            </option>
+                            <!-- <option value="0">Danh mục</option>
                             <option value="/laptops">Laptop</option>
                             <option value="/phones">Điện thoại</option>
                             <option value="/cameras">Máy ảnh</option>
-                            <option value="/accessories">Phụ kiện</option>
+                            <option value="/accessories">Phụ kiện</option> -->
                         </select>
                         <input type="text" class="search-box" data-toggle="dropdown" placeholder="Nhập từ khóa tìm kiếm"
                             style="outline: none; width: 320px; height: 42px;" #input [matAutocomplete] = "auto" />

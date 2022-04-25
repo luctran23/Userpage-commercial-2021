@@ -1,3 +1,6 @@
+.checkout-container {
+    min-height: 48vh;
+}
 .has-error {
     border: 2px solid red;
 }

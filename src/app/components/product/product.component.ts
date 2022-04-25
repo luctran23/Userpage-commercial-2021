@@ -26,7 +26,6 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.getSpecificProduct();
     window.scrollTo(0, 0);
-    console.log("current url: ", this.router.url);
   }
 
   getSpecificProduct() {

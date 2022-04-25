@@ -1,10 +1,10 @@
 .banner-parent {
     display: flex;
+    justify-content: center;
 }
 
 #carouselExampleControls {
-    margin-left: 120px;
-    width: 1010px;
+    width: 65%;
 }
 #carouselExampleControls .carousel-inner .carousel-item img {
     border-radius: 15px;

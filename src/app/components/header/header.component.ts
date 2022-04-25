@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MessengerService } from '../../services/messenger.service';
-import { Product } from '../../../models/product';
 import { CartService } from '../../services/cart.service';
 import { HomeService } from '../../services/home.service';
+import { CategoriesService } from 'src/app/services/categories.service';
 
 @Component({
   selector: 'app-header',
@@ -19,11 +19,12 @@ export class HeaderComponent implements OnInit {
   
   constructor(private messengerService: MessengerService,
               public cartService: CartService,
-              private homeService: HomeService) { }
+              private categoriesService: CategoriesService,
+              ) { }
 
   ngOnInit(): void {
     this.cartItems = this.cartService.cartItems;
-    this.homeService.getProducts().subscribe(products => this.allProducts = products);
+    this.getAllOptions();
   }
   
   TotalMoney(carts: any[]) {
@@ -37,4 +38,9 @@ export class HeaderComponent implements OnInit {
     this.messengerService.changeBehaviorMessage(value);
   }
   
+  getAllOptions() {
+    this.categoriesService.getAllItems().subscribe(categories => 
+      this.options = categories.map(item => item.name)
+    );
+  }
 }

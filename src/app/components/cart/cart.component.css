@@ -1,3 +1,6 @@
+.cart-container {
+    min-height: 48vh;
+}
 .decreaseQty {
     background: red;
     color: #fff;
