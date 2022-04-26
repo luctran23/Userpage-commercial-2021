@@ -1,0 +1,13 @@
+.news-detail-container {
+    min-height: 48vh;
+}
+
+.wrapper {
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+::ng-deep .content img {
+    width: 100%;
+}

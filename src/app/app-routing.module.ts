@@ -32,7 +32,9 @@ const routes: Routes = [
   { path: 'accessories/:id', component: AccessoryDetailComponent },
   { path: 'news', component: NewsComponent },
   { path: 'news/:id', component: NewsDetailComponent },
-  { path: 'successful', component: SuccessfulComponent }
+  { path: 'successful', component: SuccessfulComponent },
+  { path: ':id', component: LaptopsComponent }
+
 ];
 
 @NgModule({

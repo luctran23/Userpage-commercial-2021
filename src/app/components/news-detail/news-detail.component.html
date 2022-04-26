@@ -1,1 +1,19 @@
-<p>news-detail works!</p>
+<div class="news-detail-container">
+    <div class="wrapper">
+        <h1>{{news.title}}</h1>
+        <p>
+            {{ news.time | date: "dd-MM-yyyy hh:mm" }}
+        </p>
+        <!-- <h3>
+            Sau một thời gian dài xuất hiện dưới dạng tin đồn thì mới đây, Samsung vừa chính thức ra mắt chiếc máy tính bảng giá rẻ mới của hãng, có tên gọi là Galaxy Tab A7 Lite.
+        </h3> -->
+        <div class="content" [innerHTML]="news.content">
+            <!-- <p>Đúng như tên gọi cho thấy, sản phẩm này là một phiên bản rút gọn cấu hình của Galaxy Tab A7. Mặc dù vậy, chiếc tablet mới của Samsung vẫn sở hữu nhiều tính năng hấp dẫn để mang đến những giây phút giải trí tuyệt vời cho người dùng.</p>
+            <img src="https://images.fpt.shop/unsafe/filters:quality(90)/fptshop.com.vn/uploads/images/tin-tuc/135459/Originals/Galaxy-Tab-A7-Lite-ra-mat-1.jpg" alt="">
+            <p>
+                Cụ thể, Galaxy Tab A7 Lite được trang bị màn hình LCD có kích thước 8.7 inch, hỗ trợ độ phân giải 1,340 x 800 pixel và sử dụng tỷ lệ khung hình 15:9. Mặt sau của máy tính bảng này được hoàn thiện từ chất liệu kim loại cao cấp. Dù vậy, trọng lượng của máy có khá nhẹ, chỉ 366 gram và thân máy dày chỉ 8 mm (lưu ý rằng phiên bản LTE nặng hơn một vài gram).
+            </p>
+            <img src="https://images.fpt.shop/unsafe/filters:quality(90)/fptshop.com.vn/uploads/images/tin-tuc/135459/Originals/Galaxy-Tab-A7-Lite-ra-mat-2.jpg" alt=""> -->
+        </div>
+    </div>
+</div>
